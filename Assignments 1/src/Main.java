@@ -4,39 +4,28 @@ import java.util.Scanner;
 // <---- Problem 1: ---->
 
 //public class Main {
-//
 //    public static void main(String[] args) {
 //        Scanner sc = new Scanner(System.in);
-//        System.out.println("Enter the number: ");
-//        int num = sc.nextInt();
-//        int min = min_arr(num);
-//        System.out.println(min);
-//
-//    }
-//
-//    public static int min_arr(int num) {
-//        System.out.println("Problem 1:");
-//        Scanner sc = new Scanner(System.in);
-//
 //        System.out.println("Enter n: ");
 //        int n = sc.nextInt();
 //
 //        int[] arr = new int[n];
-//
 //        System.out.println("Enter array elements: ");
 //        for (int i = 0; i < n; i++) {
 //            arr[i] = sc.nextInt();
 //        }
 //
-//        int min_element = arr[0];
-//        for (int i = 1; i < n; i++) {
-//            if (arr[i] < min_element) {
-//                min_element = arr[i];
-//            }
-//        }
-//
-//        return min_element;
+//        int min = findMin(arr, n - 1);
+//        System.out.println(min);
 //    }
+//
+//    public static int findMin(int[] arr, int index) {
+//        if (index == 0) {
+//            return arr[0];
+//        }
+//        return Math.min(arr[index], findMin(arr, index - 1));
+//    }
+//}
 //
 //}
 
@@ -46,36 +35,29 @@ import java.util.Scanner;
 // <---- Problem 2: ---->
 
 //public class Main {
-//
 //    public static void main(String[] args) {
 //        Scanner sc = new Scanner(System.in);
-//
-//        System.out.println("Enter the number: ");
+//        System.out.println("Enter n: ");
 //        int n = sc.nextInt();
 //
-//        float avg_num = avg_arr(n);
-//        System.out.println(avg_num);
-//    }
-//
-//    public static float avg_arr(int n) {
 //        float[] arr = new float[n];
-//
-//        Scanner sc = new Scanner(System.in);
-//
-//        System.out.println("Enter array elements:");
+//        System.out.println("Enter array elements: ");
 //        for (int i = 0; i < n; i++) {
 //            arr[i] = sc.nextFloat();
 //        }
 //
-//        float sum_nums = 0;
-//        for (int i = 0; i < n; i++) {
-//            sum_nums += arr[i];
-//        }
-//
-//        return sum_nums / n;
+//        float avg = findAverage(arr, n - 1) / n;
+//        System.out.println(avg);
 //    }
 //
+//    public static float findAverage(float[] arr, int index) {
+//        if (index == 0) {
+//            return arr[0];
+//        }
+//        return arr[index] + findAverage(arr, index - 1);
+//    }
 //}
+
 
 //-------------------------------------------------------------------
 
@@ -173,25 +155,21 @@ import java.util.Scanner;
 //public class Main {
 //    public static void main(String[] args) {
 //        Scanner sc = new Scanner(System.in);
-//
 //        System.out.print("Enter a: ");
 //        int a = sc.nextInt();
 //
 //        System.out.print("Enter n: ");
 //        int n = sc.nextInt();
 //
-//        int result = degree(a, n);
+//        int result = power(a, n);
 //        System.out.println(result);
 //    }
 //
-//    public static int degree(int a, int n) {
-//
-//        int res = 1;
-//
-//        for (int i = 1; i <= n; i++) {
-//            res=res*a;
+//    public static int power(int a, int n) {
+//        if (n == 0) {
+//            return 1;
 //        }
-//        return res;
+//        return a * power(a, n - 1);
 //    }
 //}
 
@@ -232,18 +210,21 @@ import java.util.Scanner;
 //public class Main {
 //    public static void main(String[] args) {
 //        Scanner sc = new Scanner(System.in);
-//
-//        System.out.print("Enter the s: ");
+//        System.out.print("Enter the string: ");
 //        String s = sc.nextLine();
 //
-//
-//        System.out.println(isAllDigits(s) ? "Yes" : "No");
+//        System.out.println(isAllDigits(s, 0) ? "Yes" : "No");
 //    }
 //
-//    public static boolean isAllDigits(String s) {
-//        return s.matches("\\d+");
+//    public static boolean isAllDigits(String s, int index) {
+//        if (index == s.length()) {
+//            return true;
+//        }
+//        if (!Character.isDigit(s.charAt(index))) {
+//            return false;
+//        }
+//        return isAllDigits(s, index + 1);
 //    }
-//
 //}
 
 
